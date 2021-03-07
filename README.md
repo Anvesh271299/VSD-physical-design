@@ -374,6 +374,8 @@ library hold time and hold slack = -9.4ps and 222.5ps respectively
 
 
 ### D5SK2 - MCQ1
+![image](https://user-images.githubusercontent.com/80052871/110255563-66c89c80-7fba-11eb-8367-678203f6a07e.png)
+
 Go to Day 5 labs
 
 Open terminal
@@ -387,11 +389,15 @@ qflow sta picorv32
 qflow backanno picorv32
 leafpad log/sta.log*
 
+![image](https://user-images.githubusercontent.com/80052871/110255456-d427fd80-7fb9-11eb-8b61-6940477e68f2.png)
+pre-layout frequency = 314 MHz
 
 
 ### D5SK2 - MCQ2
 
 log/post_sta.log
+![image](https://user-images.githubusercontent.com/80052871/110255490-12bdb800-7fba-11eb-8118-103a00d66d70.png)
+post-layout frequency = 297 MHz
 
 
 
