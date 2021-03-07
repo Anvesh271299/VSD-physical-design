@@ -276,16 +276,28 @@ load is 10fF and rise delay is ~126ps
 
 ![image](https://user-images.githubusercontent.com/80052871/110254422-16027500-7fb5-11eb-885f-9a18ebe66b86.png)
 
+![image](https://user-images.githubusercontent.com/80052871/110254465-3fbb9c00-7fb5-11eb-9a7b-6dc505d60735.png)
+Changing the load to 20f.
+![image](https://user-images.githubusercontent.com/80052871/110254735-5d3d3580-7fb6-11eb-9bd1-f81ae14a9eab.png)
+![image](https://user-images.githubusercontent.com/80052871/110254741-66c69d80-7fb6-11eb-8c5d-abcf6f64568e.png)
 
-### D4SK2 - MCQ6
+
+### D4SK2 - MCQ6,7,8,9,10
 
 Go to labs Open below file using "leafpad" or "less" or "vim" - whichever you are comfortable with)
 
 /usr/local/share/qflow/tech/osu018/osu018_stdcells.lib
 
-![image](https://user-images.githubusercontent.com/80052871/110254465-3fbb9c00-7fb5-11eb-9a7b-6dc505d60735.png)
-Changing the load to 20f.
-
+![image](https://user-images.githubusercontent.com/80052871/110254798-ad1bfc80-7fb6-11eb-88f2-bfa05d32ccb8.png)
+slew upper threshold pct fall = 80 
+![image](https://user-images.githubusercontent.com/80052871/110254838-e0f72200-7fb6-11eb-853e-13c7568578ad.png)
+o/p threshold pct rise = 50%
+![image](https://user-images.githubusercontent.com/80052871/110254870-0a17b280-7fb7-11eb-9e6b-e18d6deb9634.png)
+variable 1 and variable 2
+![image](https://user-images.githubusercontent.com/80052871/110254892-2a477180-7fb7-11eb-9c54-43fc91e9cfe0.png)
+INVX1
+![image](https://user-images.githubusercontent.com/80052871/110254901-33d0d980-7fb7-11eb-81ea-0954c4849b01.png)
+Delay template 5x5
 
 
 ### D4SK2 - MCQ11
@@ -299,6 +311,8 @@ leafpad picorv32.sdc*
 Type below lines in the file picorv32.sdc file which you have just opened above
 
 create_clock -name clk -period 2.5 -waveform {0 1.25} [get_ports clk]
+![image](https://user-images.githubusercontent.com/80052871/110254928-4ea34e00-7fb7-11eb-90d2-4c0797821c35.png)
+
 Save and close the above file
 
 Now type below command
@@ -311,14 +325,21 @@ read_verilog synthesis/picorv32.rtlnopwr.v
 link_design picorv32
 read_sdc picorv32.sdc
 report_checks*
+![image](https://user-images.githubusercontent.com/80052871/110254940-59f67980-7fb7-11eb-8a03-c9da867c87ec.png)
 
 
 Now type below command
 
 sta prelayout_sta.conf
+![image](https://user-images.githubusercontent.com/80052871/110254954-68449580-7fb7-11eb-8304-423980aeda15.png)
+SLACK value =-0.56
+![image](https://user-images.githubusercontent.com/80052871/110254959-6d094980-7fb7-11eb-8f41-f1742248047f.png)
+data arrival time =2.9ns
+![image](https://user-images.githubusercontent.com/80052871/110254960-709cd080-7fb7-11eb-8dbd-32e0eff94137.png)
+data required time =2.3389ns
 
 
-### D4SK4 - MCQ2
+### D4SK4 - MCQ2,3
 Perform all steps in D4SK2 - MCQ11
 
 You are now at below "sta" terminal
@@ -329,7 +350,14 @@ Type below command in above terminal
 *set_propagated_clock [all_clocks]
 report_checks*
 
+![image](https://user-images.githubusercontent.com/80052871/110255131-4ac3fb80-7fb8-11eb-9608-c3433047b4ef.png)
+SLACK value after clock propagation = around -0.68ns
 
+![image](https://user-images.githubusercontent.com/80052871/110255286-ece3e380-7fb8-11eb-980c-967127118044.png)
+launch clock network delay
+
+![image](https://user-images.githubusercontent.com/80052871/110255319-10a72980-7fb9-11eb-84e7-b81a7b908a61.png)
+capture clock network delay=0.56
 
 
 ### D4SK4 - MCQ5
@@ -339,7 +367,10 @@ Type below command
 
 report_checks -path_delay min -digits 4
 
+![image](https://user-images.githubusercontent.com/80052871/110255353-37656000-7fb9-11eb-8bfd-1f6ec16d0d8c.png)
+![image](https://user-images.githubusercontent.com/80052871/110255356-3cc2aa80-7fb9-11eb-9f91-29f23c1be189.png)
 
+library hold time and hold slack = -9.4ps and 222.5ps respectively
 
 
 ### D5SK2 - MCQ1
