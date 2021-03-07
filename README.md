@@ -88,11 +88,6 @@ git clone https://github.com/kunalg123/vsdflow.git
 ls -ltr outdir_spi_slave/*
 ![image](https://user-images.githubusercontent.com/80052871/110253315-accc3300-7faf-11eb-8c72-c6149d4766ab.png)
 
-Now type below command
-
-ls -ltr outdir_spi_slave | wc
-
-
 
 
 ### D1SK4 - MCQ7
@@ -101,6 +96,9 @@ ls -ltr outdir_spi_slave | wc
 qflow display spi_slave*
 It will open 2 windows "layout1" and "tkcon"
 ![image](https://user-images.githubusercontent.com/80052871/110253341-d2593c80-7faf-11eb-9630-c390d2d4b2d2.png)
+
+![image](https://user-images.githubusercontent.com/80052871/110253547-f406f380-7fb0-11eb-8622-13647c3d112d.png)
+
 
 
 
@@ -132,10 +130,15 @@ Verilog module : picorv32
 
 
 ### D2SK4 - MCQ5
+![image](https://user-images.githubusercontent.com/80052871/110253632-55c75d80-7fb1-11eb-9664-5c160e72ccca.png)
+![image](https://user-images.githubusercontent.com/80052871/110253635-595ae480-7fb1-11eb-942d-6fea51a386cc.png)
+![image](https://user-images.githubusercontent.com/80052871/110253636-5bbd3e80-7fb1-11eb-8ad7-bd9cf63de461.png)
+
 *cd
 cd vsdflow/my_picorv32
 qflow display picorv32 &*
 This will open layout and tkcon window In the layout window, select whole chip using below steps
+![image](https://user-images.githubusercontent.com/80052871/110253583-26b0ec00-7fb1-11eb-8061-259c41741687.png)
 
 Take cursor to bottom left
 Left mouse click
@@ -145,6 +148,7 @@ Press Shift+i
 This will select the whole layout Now in tkcon window, type below command
 
 box
+![image](https://user-images.githubusercontent.com/80052871/110253596-36c8cb80-7fb1-11eb-946f-2964661d925a.png)
 
 
 
