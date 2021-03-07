@@ -157,6 +157,7 @@ box
 git clone https://github.com/kunalg123/ngspice_labs.git
 cd ngspice_labs
 cat inv.spice*
+![image](https://user-images.githubusercontent.com/80052871/110253698-c53d4d00-7fb1-11eb-8721-5c2f23537d20.png)
 
 
 ### D3SK1 - MCQ8
@@ -165,14 +166,17 @@ cat inv.spice*
 cd ngspice_labs
 ngspice inv.spice*
 There will be terminal like below
-
+![image](https://user-images.githubusercontent.com/80052871/110253779-2402c680-7fb2-11eb-91aa-862412ed0eb5.png)
 ngspice 1 ->
 On the above ngspice terminal, type below commands
 
 *run
 setplot dc1
 plot out in*
+![image](https://user-images.githubusercontent.com/80052871/110253791-2e24c500-7fb2-11eb-950e-0c9dc167b312.png)
 
+![image](https://user-images.githubusercontent.com/80052871/110253800-35e46980-7fb2-11eb-9b76-e512c2ef800e.png)
+"x0" value lies between 1.0v-1.1v
 
 
 
@@ -183,8 +187,19 @@ Type below command
 
 leafpad inv.spice
 
+![image](https://user-images.githubusercontent.com/80052871/110253847-6fb57000-7fb2-11eb-9631-c64cd0f7da3e.png)
 
+![image](https://user-images.githubusercontent.com/80052871/110253937-d63a8e00-7fb2-11eb-92e4-f23993310296.png)
 
+leafpad in_tran.spice
+![image](https://user-images.githubusercontent.com/80052871/110253960-ece0e500-7fb2-11eb-94f6-cb7e2fbbae87.png)
+
+ngspice inv_tran.spice
+ngspice 1 -> run
+ngspice 1 -> setplot tran1
+ngspice 1 -> plot out in
+![image](https://user-images.githubusercontent.com/80052871/110253978-01bd7880-7fb3-11eb-9a85-750021c087aa.png)
+Rise delay= 76ps
 
 ### D3SK2 - MCQ1
 Go to labs, type below commands
@@ -196,8 +211,11 @@ ngspice 1 -> run
 ngspice 1 -> setplot tran1
 ngspice 1 -> plot out 1.25*
 
+![image](https://user-images.githubusercontent.com/80052871/110254047-6ed10e00-7fb3-11eb-8b0a-7b66663ae18d.png)
+Value of X0 at the intersection of horizontal blue line and middle rising waveform = Around 1.6e-09
 
-
+![image](https://user-images.githubusercontent.com/80052871/110254082-9a53f880-7fb3-11eb-83ab-5ea7fca05601.png)
+Value of X0 at the intersection of horizontal blue line and middle falling waveform = Around 2.2e-09
 
 ### D3SK3 - MCQ3
 
@@ -209,12 +227,16 @@ Type below commands
 cd ngspice_labs
 magic -T min2.tech*
 This will open magic layout window and tkcon window
+![image](https://user-images.githubusercontent.com/80052871/110254178-11898c80-7fb4-11eb-9877-deb68bcf5fa8.png)
+8 nsubstratecontact and 6 polysilicon strips
 
 Go to tkcon window and type below command
 
 source draw_fn.tcl
+![image](https://user-images.githubusercontent.com/80052871/110254163-f9b20880-7fb3-11eb-8f08-1067ec64e3f8.png)
 
-
+![image](https://user-images.githubusercontent.com/80052871/110254205-2fef8800-7fb4-11eb-8308-f6e7f4689849.png)
+area of the above design = 4489 unit^2
 
 
 ### D3SK3 - MCQ4
@@ -226,6 +248,7 @@ Type below command
 cd ngspice_labs
 magic -T min2.tech fn_postlayout.mag &*
 
+![image](https://user-images.githubusercontent.com/80052871/110254238-5e6d6300-7fb4-11eb-9e84-37d86df7fe68.png)
 
 
 ### D4SK1 - MCQ6
