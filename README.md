@@ -257,7 +257,8 @@ magic -T min2.tech fn_postlayout.mag &*
 git clone https://github.com/kunalg123/ngspice_labs
 cd ngspice_labs
 cat inv_tran.spice*
-
+![image](https://user-images.githubusercontent.com/80052871/110254534-9cb75200-7fb5-11eb-80a3-167808b73d25.png)
+ input rise slew and fall slew = 10ps, 10ps respectively
 
 ### D4SK1 - MCQ7
 Go to Day 4 (When you start Day 4 labs, system will enable Day 2 labs for you. Click on Desktop icon)
@@ -268,7 +269,11 @@ Open terminal and Type below commands
 cd ngspice_labs
 cat inv_tran.spice
 ngspice inv_tran.spice*
+![image](https://user-images.githubusercontent.com/80052871/110254396-fb300080-7fb4-11eb-9625-fa418abd2f25.png)
 
+![image](https://user-images.githubusercontent.com/80052871/110254432-2286cd80-7fb5-11eb-8fd2-1e74b7d0ba78.png)
+
+![image](https://user-images.githubusercontent.com/80052871/110254422-16027500-7fb5-11eb-885f-9a18ebe66b86.png)
 
 
 ### D4SK2 - MCQ6
@@ -277,7 +282,8 @@ Go to labs Open below file using "leafpad" or "less" or "vim" - whichever you ar
 
 /usr/local/share/qflow/tech/osu018/osu018_stdcells.lib
 
-
+![image](https://user-images.githubusercontent.com/80052871/110254465-3fbb9c00-7fb5-11eb-9a7b-6dc505d60735.png)
+Changing the load to 20f.
 
 
 
