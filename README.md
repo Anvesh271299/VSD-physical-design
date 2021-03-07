@@ -1,7 +1,7 @@
 # VSD-physical-design
 ## Physical Design using Open-Source EDA Tools
 ### A 5 day course on physical designing using open source tools.
-#### CONTENTS:
+### CONTENTS:
 1. **DAY 1 Study and review various components of RISC-V based picoSoC**
   * SKILL 1
     + Introduction to QFN-48 Package, chip,pads,core,die and IP's
@@ -69,25 +69,30 @@
 ### D1SK4 - MCQ3
 
 1.Click on VSD IAT, Go to "Lab Instances". Then under "Links", click on the "link" icon. Click bottom left, System tools > LXTerminal. 2.Now type the command "yosys". What do you see next?
-! HI
-
+![image](https://user-images.githubusercontent.com/80052871/110253187-e94b5f00-7fae-11eb-929d-bb1fb697bba0.png)
 
 ### D1SK4 - MCQ4
 
 which sta
+![image](https://user-images.githubusercontent.com/80052871/110253094-7fcb5080-7fae-11eb-9ed3-1b75f330c92e.png)
 
 ### D1SK4 - MCQ5
 
 git clone https://github.com/kunalg123/vsdflow.git
+![image](https://user-images.githubusercontent.com/80052871/110253199-fe27f280-7fae-11eb-851c-ec6b04cb2187.png)
+
 
 ### D1SK4 - MCQ6
 *cd vsdflow
 ./vsdflow spi_slave_design_details.csv
 ls -ltr outdir_spi_slave/*
+![image](https://user-images.githubusercontent.com/80052871/110253315-accc3300-7faf-11eb-8c72-c6149d4766ab.png)
 
 Now type below command
 
 ls -ltr outdir_spi_slave | wc
+
+
 
 
 ### D1SK4 - MCQ7
@@ -95,8 +100,7 @@ ls -ltr outdir_spi_slave | wc
 *cd outdir_spi_slave
 qflow display spi_slave*
 It will open 2 windows "layout1" and "tkcon"
-
-On "tkcon" window, type "box".
+![image](https://user-images.githubusercontent.com/80052871/110253341-d2593c80-7faf-11eb-9630-c390d2d4b2d2.png)
 
 
 
@@ -108,6 +112,7 @@ cd my_picorv32
 mkdir source synthesis layout
 cp ~/vsdflow/verilog/picorv32.v source/.
 qflow gui &*
+![image](https://user-images.githubusercontent.com/80052871/110253380-06ccf880-7fb0-11eb-843d-cc9b3dec4f49.png)
 
 Select below options in gui
 
@@ -117,7 +122,13 @@ Verilog source file : picorv32.v
 
 Verilog module : picorv32
 
+![image](https://user-images.githubusercontent.com/80052871/110253395-1e0be600-7fb0-11eb-9731-e4410e088001.png)
 
+![image](https://user-images.githubusercontent.com/80052871/110253397-219f6d00-7fb0-11eb-9268-366e023fe173.png)
+
+![image](https://user-images.githubusercontent.com/80052871/110253401-26642100-7fb0-11eb-8427-e96505a6157c.png)
+
+![image](https://user-images.githubusercontent.com/80052871/110253412-31b74c80-7fb0-11eb-8088-9359189e7f21.png)
 
 
 ### D2SK4 - MCQ5
