@@ -1,9 +1,10 @@
 # VSD-physical-design
 ## Physical Design using Open-Source EDA Tools
-A 5 day course on physical designing using open source tools.
-CONTENTS:
+### A 5 day course on physical designing using open source tools.
+#### CONTENTS:
 1. **DAY 1 Study and review various components of RISC-V based picoSoC**
   * SKILL 1
+    + sample
   * SKILL 2
   * SKILL 3
   * SKILL 4
@@ -30,4 +31,5 @@ CONTENTS:
   * SKILL 2
   * SKILL 3
   * SKILL 4
+
 
