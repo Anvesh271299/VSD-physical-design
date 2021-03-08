@@ -37,22 +37,58 @@
     + propagation delay and transition time
 
 3. **DAY 3 Design and characterize one library cell using Magic Layout tool and ngspice**
-  * SKILL 1
-  * SKILL 2
-  * SKILL 3
-  * SKILL 4
+  * SKILL 1- Labs for CMOS inverter ngspice simulation
+    + Spice deck creation for CMOS inverter
+    + Spice simulation lab for CMOS INverter
+    + Switching threshold Vm
+    + Static and Dynamic simulation of CMOS
+  * SKILL 2- Art of layout using Euler's path plus stick diagram
+    + Pre layout simulation of test circuit
+    + Layout using only stick diagram
+    + Euler's path for Fn-input gate reordering
+    + Improved stick diagram for new input gate reordering
+    + Abstract layout from stick diagram
+  * SKILL 3- Lab for Magic and post-layout ngspice simulations
+    + Derive actual dimension for Fn
+    + Script to create layout in magic
+    + Final layout and input/output labelling
+    + Post layout ngspice simulation
+  * SKILL 4- Inception of layout CMOD fabrication process
+    + Create active region
+    + Formation of n-well and p-well
+    + Formation of gate
+    + LDD formation
+    + Source-drain formation
+    + Local interconnect formation
+    + Higher level metal formation
 
 4. **DAY 4  Pre-layout timing analysis and importance of good clock tree**
-  * SKILL 1
-  * SKILL 2
-  * SKILL 3
-  * SKILL 4
+  * SKILL 1- Timing modelling using delay table
+    + Introduction to delay table
+    + Delay table usage
+  * SKILL 2- Timing analysis with ideal clock
+    + Setup timing analysis and introduction to flip flop setup time
+    + Introduction to clock jitter and uncertainity
+  * SKILL 3- Clock tree synthesis and signal integrity
+    + Clock tree routing and buffering using H-tree algorithm
+    + crosstalk and net shielding
+  * SKILL 4- Timing analysis with real clock
+    + Setup timing analysing using real clock
+    + Hold timing analysis using real clock
 
 5. **DAY 5 Final steps for RTL2GDS**
-  * SKILL 1
-  * SKILL 2
-  * SKILL 3
-  * SKILL 4
+  * SKILL 1- Routing and design rule check(DRC)
+    + Introduction to maze routing
+    + Lee's algoritm conclusion
+    + Design rule check
+    + Introduction to IEEE-1481--1999 SPEF format
+    + SPEF representation of NET
+    + Distributed resistance and capacitance in SPEF
+    + SPEF header descrition
+  * SKILL 2- PNR interactive flow tutorial
+    + Few tips on PIN placement and floor planning chip
+    + Placement and pre-route STA
+    + Routing and post route STA
 ### TOOLS USED
 #### The open source tools that are involved in this workshop are as follows
 
@@ -64,33 +100,27 @@
 6. Qflow – RTL2GDS integration, 
 7. OpenSTA & Opentimer -Pre-layout and Post-layout Static timing analysis
 
-### LABS
+## LABS
+
 ### DAY1
-### D1SK4 - MCQ3
+
+#### Installation of basic EDA tools
 
 1.Click on VSD IAT, Go to "Lab Instances". Then under "Links", click on the "link" icon. Click bottom left, System tools > LXTerminal. 2.Now type the command "yosys". What do you see next?
 ![image](https://user-images.githubusercontent.com/80052871/110253187-e94b5f00-7fae-11eb-929d-bb1fb697bba0.png)
 
-### D1SK4 - MCQ4
+#### sta
 
 which sta
 ![image](https://user-images.githubusercontent.com/80052871/110253094-7fcb5080-7fae-11eb-9ed3-1b75f330c92e.png)
 
-### D1SK4 - MCQ5
-
 git clone https://github.com/kunalg123/vsdflow.git
 ![image](https://user-images.githubusercontent.com/80052871/110253199-fe27f280-7fae-11eb-851c-ec6b04cb2187.png)
 
-
-### D1SK4 - MCQ6
 *cd vsdflow
 ./vsdflow spi_slave_design_details.csv
 ls -ltr outdir_spi_slave/*
 ![image](https://user-images.githubusercontent.com/80052871/110253315-accc3300-7faf-11eb-8c72-c6149d4766ab.png)
-
-
-
-### D1SK4 - MCQ7
 
 *cd outdir_spi_slave
 qflow display spi_slave*
@@ -99,10 +129,6 @@ It will open 2 windows "layout1" and "tkcon"
 
 ![image](https://user-images.githubusercontent.com/80052871/110253547-f406f380-7fb0-11eb-8622-13647c3d112d.png)
 
-
-
-
-### D1SK4 - MCQ8
 *cd
 cd vsdflow
 mkdir my_picorv32
@@ -128,8 +154,8 @@ Verilog module : picorv32
 
 ![image](https://user-images.githubusercontent.com/80052871/110253412-31b74c80-7fb0-11eb-8088-9359189e7f21.png)
 
-
-### D2SK4 - MCQ5
+### DAY 2
+#### Chip planning strategies and introduction to foundry library cells
 ![image](https://user-images.githubusercontent.com/80052871/110253632-55c75d80-7fb1-11eb-9664-5c160e72ccca.png)
 ![image](https://user-images.githubusercontent.com/80052871/110253635-595ae480-7fb1-11eb-942d-6fea51a386cc.png)
 ![image](https://user-images.githubusercontent.com/80052871/110253636-5bbd3e80-7fb1-11eb-8ad7-bd9cf63de461.png)
@@ -151,16 +177,13 @@ box
 ![image](https://user-images.githubusercontent.com/80052871/110253596-36c8cb80-7fb1-11eb-946f-2964661d925a.png)
 
 
-
-### D3SK1 - MCQ5,6,7
+### DAY 3
+####  Labs for CMOS inverter ngspice simulation
 *cd
 git clone https://github.com/kunalg123/ngspice_labs.git
 cd ngspice_labs
 cat inv.spice*
 ![image](https://user-images.githubusercontent.com/80052871/110253698-c53d4d00-7fb1-11eb-8721-5c2f23537d20.png)
-
-
-### D3SK1 - MCQ8
 
 *cd
 cd ngspice_labs
@@ -179,8 +202,6 @@ plot out in*
 "x0" value lies between 1.0v-1.1v
 
 
-
-### D3SK1 - MCQ10
 Go to labs, open terminal
 
 Type below command
@@ -201,7 +222,7 @@ ngspice 1 -> plot out in
 ![image](https://user-images.githubusercontent.com/80052871/110253978-01bd7880-7fb3-11eb-9a85-750021c087aa.png)
 Rise delay= 76ps
 
-### D3SK2 - MCQ1
+#### Art of layout using Euler's path plus stick diagram
 Go to labs, type below commands
 
 *cd
@@ -217,7 +238,7 @@ Value of X0 at the intersection of horizontal blue line and middle rising wavefo
 ![image](https://user-images.githubusercontent.com/80052871/110254082-9a53f880-7fb3-11eb-83ab-5ea7fca05601.png)
 Value of X0 at the intersection of horizontal blue line and middle falling waveform = Around 2.2e-09
 
-### D3SK3 - MCQ3
+#### Lab for Magic and post-layout ngspice simulations
 
 Go to labs, open terminal
 
@@ -238,8 +259,6 @@ source draw_fn.tcl
 ![image](https://user-images.githubusercontent.com/80052871/110254205-2fef8800-7fb4-11eb-8308-f6e7f4689849.png)
 area of the above design = 4489 unit^2
 
-
-### D3SK3 - MCQ4
 Go to labs, open terminal
 
 Type below command
@@ -250,8 +269,8 @@ magic -T min2.tech fn_postlayout.mag &*
 
 ![image](https://user-images.githubusercontent.com/80052871/110254238-5e6d6300-7fb4-11eb-9e84-37d86df7fe68.png)
 
-
-### D4SK1 - MCQ6
+### DAY 4
+####  Timing modelling using delay table
 
 *cd
 git clone https://github.com/kunalg123/ngspice_labs
@@ -260,7 +279,6 @@ cat inv_tran.spice*
 ![image](https://user-images.githubusercontent.com/80052871/110254534-9cb75200-7fb5-11eb-80a3-167808b73d25.png)
  input rise slew and fall slew = 10ps, 10ps respectively
 
-### D4SK1 - MCQ7
 Go to Day 4 (When you start Day 4 labs, system will enable Day 2 labs for you. Click on Desktop icon)
 
 Open terminal and Type below commands
@@ -282,7 +300,7 @@ Changing the load to 20f.
 ![image](https://user-images.githubusercontent.com/80052871/110254741-66c69d80-7fb6-11eb-8c5d-abcf6f64568e.png)
 
 
-### D4SK2 - MCQ6,7,8,9,10
+#### Timing analysis with ideal clock
 
 Go to labs Open below file using "leafpad" or "less" or "vim" - whichever you are comfortable with)
 
@@ -300,7 +318,6 @@ INVX1
 Delay template 5x5
 
 
-### D4SK2 - MCQ11
 Go to labs
 
 Type below command
@@ -339,7 +356,7 @@ data arrival time =2.9ns
 data required time =2.3389ns
 
 
-### D4SK4 - MCQ2,3
+#### Timing analysis with real clock
 Perform all steps in D4SK2 - MCQ11
 
 You are now at below "sta" terminal
@@ -359,8 +376,6 @@ launch clock network delay
 ![image](https://user-images.githubusercontent.com/80052871/110255319-10a72980-7fb9-11eb-84e7-b81a7b908a61.png)
 capture clock network delay=0.56
 
-
-### D4SK4 - MCQ5
 Perform all steps in D4SK4 - MCQ3
 
 Type below command
@@ -373,7 +388,8 @@ report_checks -path_delay min -digits 4
 library hold time and hold slack = -9.4ps and 222.5ps respectively
 
 
-### D5SK2 - MCQ1
+### DAY 5
+#### PNR interactive flow tutorial
 ![image](https://user-images.githubusercontent.com/80052871/110255563-66c89c80-7fba-11eb-8367-678203f6a07e.png)
 
 Go to Day 5 labs
@@ -391,9 +407,6 @@ leafpad log/sta.log*
 
 ![image](https://user-images.githubusercontent.com/80052871/110255456-d427fd80-7fb9-11eb-8b61-6940477e68f2.png)
 pre-layout frequency = 314 MHz
-
-
-### D5SK2 - MCQ2
 
 log/post_sta.log
 ![image](https://user-images.githubusercontent.com/80052871/110255490-12bdb800-7fba-11eb-8118-103a00d66d70.png)
