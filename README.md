@@ -412,6 +412,8 @@ log/post_sta.log
 ![image](https://user-images.githubusercontent.com/80052871/110255490-12bdb800-7fba-11eb-8118-103a00d66d70.png)
 post-layout frequency = 297 MHz
 
+## Acknowledgement
 
+Kunal Ghosh -CO Founder VSD(VSD Corp.pvt.ltd)
 
 
