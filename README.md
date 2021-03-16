@@ -397,12 +397,14 @@ Verilog module : picorv32
 ![image](https://user-images.githubusercontent.com/80052871/110253401-26642100-7fb0-11eb-8427-e96505a6157c.png)
 
 ![image](https://user-images.githubusercontent.com/80052871/110253412-31b74c80-7fb0-11eb-8088-9359189e7f21.png)
-
+Number of cells = 6628
+Number of flops = 992
+ratio of flops to total logic = 6628/992 = 6.68%
 ### DAY 2
 #### Chip planning strategies and introduction to foundry library cells
 ![image](https://user-images.githubusercontent.com/80052871/111289302-0943e800-866b-11eb-9aad-65bbe4823f65.png)
 ![Screenshot (716)](https://user-images.githubusercontent.com/80052871/111290656-61c7b500-866c-11eb-9541-6777a6a37d13.png)
-
+Synthesis file shows the number of cells, number of flops and etc.
 
 ![image](https://user-images.githubusercontent.com/80052871/110253636-5bbd3e80-7fb1-11eb-8ad7-bd9cf63de461.png)
 
@@ -420,7 +422,9 @@ Press Shift+i
 This will select the whole layout Now in tkcon window, type below command
 
 box
+
 ![image](https://user-images.githubusercontent.com/80052871/110253596-36c8cb80-7fb1-11eb-946f-2964661d925a.png)
+The above image shows the chip area which is selected in the layoutsection
 
 
 ### DAY 3
@@ -443,7 +447,7 @@ On the above ngspice terminal, type below commands
 setplot dc1
 plot out in*
 ![image](https://user-images.githubusercontent.com/80052871/110253791-2e24c500-7fb2-11eb-950e-0c9dc167b312.png)
-
+The below diagram shows the VTC characteristics of an inverter. The blueline(tan 45) intersecting the VTC curve that is called as switching threshold voltage(vm). swicthing threshold is the point where vin = vout and at which both p & n mos turned on and they are in saturation region.
 ![image](https://user-images.githubusercontent.com/80052871/110253800-35e46980-7fb2-11eb-9b76-e512c2ef800e.png)
 "x0" value lies between 1.0v-1.1v
 
@@ -455,6 +459,7 @@ Type below command
 leafpad inv.spice
 
 ![image](https://user-images.githubusercontent.com/80052871/110253847-6fb57000-7fb2-11eb-9631-c64cd0f7da3e.png)
+By using leafpad inv.spice command opens the inv.spice file and then edit the pmos width into 0.75u and then perform the dc simulation in ngspice simulation tool.
 
 ![image](https://user-images.githubusercontent.com/80052871/110253937-d63a8e00-7fb2-11eb-92e4-f23993310296.png)
 
@@ -485,7 +490,7 @@ Value of X0 at the intersection of horizontal blue line and middle rising wavefo
 Value of X0 at the intersection of horizontal blue line and middle falling waveform = Around 2.2e-09
 
 #### Lab for Magic and post-layout ngspice simulations
-
+The below image shows the layout diagram of a function. In the layout, the pink color strips are polysilicon strips and bottom of the layout shows the gnd terminal and it has contacts which are used to connect the ground terminal.
 Go to labs, open terminal
 
 Type below commands
@@ -497,6 +502,7 @@ This will open magic layout window and tkcon window
 ![image](https://user-images.githubusercontent.com/80052871/110254178-11898c80-7fb4-11eb-9877-deb68bcf5fa8.png)
 8 nsubstratecontact and 6 polysilicon strips
 
+Magic is a tool which is used to construct the layout.Integrated circuit layout, also known IC layout, IC mask layout, or mask design, is the representation of an integrated circuit in terms of planar geometric shapes which correspond to the patterns of metal, oxide, or semiconductor layers that make up the components of the integrated circuit. source draw_fn.tcl is run the drwa_fn tcl file and it draw a layout for the function. The layout consist of polysilicon straps, n- well, metal contacts with width 3lambda and etc.
 Go to tkcon window and type below command
 
 source draw_fn.tcl
@@ -517,7 +523,9 @@ magic -T min2.tech fn_postlayout.mag &*
 
 ### DAY 4
 ####  Timing modelling using delay table
+git clone is a Git command line utility which is used to target an existing repository and create a clone, or copy of the target repository and ngspice is a tool which is used for circuit simulation and change the directory to ngspice_labs.The cat command allows us to create single or multiple files, view contain of file, concatenate files and redirect output in terminal or files and cat inv_tran.spice- it open the inv_tran.spice file. The file contains the info of the pmos and nmos that is width,length and the input pulse signal shows the rise slew and fall slew values.
 
+The below figure shows the netlist description of a inverter. in that image, vin is a pulse with time period = 2ns,pulse width = 1ns,rise and fall slew = 10ps.
 *cd
 git clone https://github.com/kunalg123/ngspice_labs
 cd ngspice_labs
@@ -526,6 +534,8 @@ cat inv_tran.spice*
  input rise slew and fall slew = 10ps, 10ps respectively
 
 Go to Day 4 (When you start Day 4 labs, system will enable Day 2 labs for you. Click on Desktop icon)
+
+The below figure shows the netlist description of a inverter.
 
 Open terminal and Type below commands
 
