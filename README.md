@@ -2,7 +2,7 @@
 ## Physical Design using Open-Source EDA Tools
 ### A 5 day course on physical designing using open source tools.
 ### CONTENTS:
-**DAY 1 Study and review various components of RISC-V based picoSoC**
+#### DAY 1 Study and review various components of RISC-V based picoSoC
   * IC design components terminologies
   * Let's talk to computers
   * Get familiar to open-source EDA tools
@@ -68,7 +68,8 @@ Schematic Editor - **eSim** : Complex circuit design , SPICE Simulations and Ana
     + Raven SoC 
   * SKILL 4
     + Installation of basic EDA tools
-**DAY 2 Chip planning strategies and introduction to foundry library cells**
+    
+#### DAY 2 Chip planning strategies and introduction to foundry library cells
 **1. Ultilization factor and aspect ratio**
 
 The first step in physical design is to define the height and width of the core and die.
