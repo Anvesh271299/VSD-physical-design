@@ -154,7 +154,7 @@ It comprises of three things.
     + timing threshold
     + propagation delay and transition time
 
-**DAY 3 Design and characterize one library cell using Magic Layout tool and ngspice**
+#### DAY 3 Design and characterize one library cell using Magic Layout tool and ngspice
   **1. Spice Deck**
 
   It comprises of the connectivity information of components i.e. Netlist. 
@@ -270,7 +270,7 @@ After drawing the stick diagram , a rough layout and the dimensions to the metal
     + Local interconnect formation
     + Higher level metal formation
 
-**DAY 4  Pre-layout timing analysis and importance of good clock tree**
+#### DAY 4  Pre-layout timing analysis and importance of good clock tree**
   **1. Delay Tables**
 
   A Delay Table is used for representing delay of a particular block while varying the output load    and input slew. Every clock with different sizes has a different Delay table and delay tables varies from block to block.
