@@ -2,7 +2,7 @@
 ## Physical Design using Open-Source EDA Tools
 ### A 5 day course on physical designing using open source tools.
 ### CONTENTS:
-1. **DAY 1 Study and review various components of RISC-V based picoSoC**
+**DAY 1 Study and review various components of RISC-V based picoSoC**
   * IC design components terminologies
   * Let's talk to computers
   * Get familiar to open-source EDA tools
@@ -68,8 +68,8 @@ Schematic Editor - **eSim** : Complex circuit design , SPICE Simulations and Ana
     + Raven SoC 
   * SKILL 4
     + Installation of basic EDA tools
-2. **DAY 2 Chip planning strategies and introduction to foundry library cells**
-  **1. Ultilization factor and aspect ratio**
+**DAY 2 Chip planning strategies and introduction to foundry library cells**
+**1. Ultilization factor and aspect ratio**
 
 The first step in physical design is to define the height and width of the core and die.
 
@@ -153,7 +153,7 @@ It comprises of three things.
     + timing threshold
     + propagation delay and transition time
 
-3. **DAY 3 Design and characterize one library cell using Magic Layout tool and ngspice**
+**DAY 3 Design and characterize one library cell using Magic Layout tool and ngspice**
   **1. Spice Deck**
 
   It comprises of the connectivity information of components i.e. Netlist. 
@@ -269,7 +269,7 @@ After drawing the stick diagram , a rough layout and the dimensions to the metal
     + Local interconnect formation
     + Higher level metal formation
 
-4. **DAY 4  Pre-layout timing analysis and importance of good clock tree**
+**DAY 4  Pre-layout timing analysis and importance of good clock tree**
   **1. Delay Tables**
 
   A Delay Table is used for representing delay of a particular block while varying the output load    and input slew. Every clock with different sizes has a different Delay table and delay tables varies from block to block.
@@ -299,7 +299,7 @@ After drawing the stick diagram , a rough layout and the dimensions to the metal
     + Setup timing analysing using real clock
     + Hold timing analysis using real clock
 
-5. **DAY 5 Final steps for RTL2GDS**
+**DAY 5 Final steps for RTL2GDS**
   **1. Maze Routing - Lee's Algorithm**
 
   It is a very popular algorithm in physical design - Routing stage. It starts by creating a routing   grid. So, according to this algorithm we have a Source "S" and a target "T" and we need to find a     path from S to T which is shortest and has the least number of bends. So starting from the cell       wherein we have our S , the adjacent cells ( except the diagonal one's) are numbered in an increasing   order to reach the T cell.
