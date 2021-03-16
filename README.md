@@ -300,7 +300,7 @@ After drawing the stick diagram , a rough layout and the dimensions to the metal
     + Setup timing analysing using real clock
     + Hold timing analysis using real clock
 
-**DAY 5 Final steps for RTL2GDS**
+#### DAY 5 Final steps for RTL2GDS**
   **1. Maze Routing - Lee's Algorithm**
 
   It is a very popular algorithm in physical design - Routing stage. It starts by creating a routing   grid. So, according to this algorithm we have a Source "S" and a target "T" and we need to find a     path from S to T which is shortest and has the least number of bends. So starting from the cell       wherein we have our S , the adjacent cells ( except the diagonal one's) are numbered in an increasing   order to reach the T cell.
@@ -348,24 +348,28 @@ An example of a DRC violation is *Signal Short* and to the easiest and the cheap
 
 1.Click on VSD IAT, Go to "Lab Instances". Then under "Links", click on the "link" icon. Click bottom left, System tools > LXTerminal. 2.Now type the command "yosys". What do you see next?
 ![image](https://user-images.githubusercontent.com/80052871/110253187-e94b5f00-7fae-11eb-929d-bb1fb697bba0.png)
-
+yosys is synthesis tool which is used to convert the rtl code into gate level netlist. To open the yosys tool, we use the command yosys.
 #### sta
 
 which sta
 ![image](https://user-images.githubusercontent.com/80052871/110253094-7fcb5080-7fae-11eb-9ed3-1b75f330c92e.png)
+“which” is command used to shows the loction/directory path of tool/folder.Linux which command is used to identify the location of a given executable that is executed when you type the executable name (command) in the terminal prompt.
 
 git clone https://github.com/kunalg123/vsdflow.git
 ![image](https://user-images.githubusercontent.com/80052871/110253199-fe27f280-7fae-11eb-851c-ec6b04cb2187.png)
+target an existing repository and create a clone
 
 *cd vsdflow
 ./vsdflow spi_slave_design_details.csv
 ls -ltr outdir_spi_slave/*
 ![image](https://user-images.githubusercontent.com/80052871/110253315-accc3300-7faf-11eb-8c72-c6149d4766ab.png)
+cd vsdflow command is usedchange the directory to vsdflow folder../vsdflow
 
 *cd outdir_spi_slave
 qflow display spi_slave*
 It will open 2 windows "layout1" and "tkcon"
 ![image](https://user-images.githubusercontent.com/80052871/110253341-d2593c80-7faf-11eb-9630-c390d2d4b2d2.png)
+cd outdir_spi_slave command change the directory to outdir_spi_slave and the qflow display spi_slave command open and display the qflow manager where you do preference,synthesis,placement and so on.
 
 ![image](https://user-images.githubusercontent.com/80052871/110253547-f406f380-7fb0-11eb-8622-13647c3d112d.png)
 
