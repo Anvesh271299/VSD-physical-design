@@ -401,8 +401,9 @@ Verilog module : picorv32
 ### DAY 2
 #### Chip planning strategies and introduction to foundry library cells
 ![image](https://user-images.githubusercontent.com/80052871/111289302-0943e800-866b-11eb-9aad-65bbe4823f65.png)
+![Screenshot (716)](https://user-images.githubusercontent.com/80052871/111290656-61c7b500-866c-11eb-9541-6777a6a37d13.png)
 
-![image](https://user-images.githubusercontent.com/80052871/110253635-595ae480-7fb1-11eb-942d-6fea51a386cc.png)
+
 ![image](https://user-images.githubusercontent.com/80052871/110253636-5bbd3e80-7fb1-11eb-8ad7-bd9cf63de461.png)
 
 *cd
