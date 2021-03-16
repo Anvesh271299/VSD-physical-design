@@ -3,6 +3,61 @@
 ### A 5 day course on physical designing using open source tools.
 ### CONTENTS:
 1. **DAY 1 Study and review various components of RISC-V based picoSoC**
+  * IC design components terminologies
+  * Let's talk to computers
+  * Get familiar to open-source EDA tools
+
+1. ***IC design component terminologies***
+
+QFN-48 Package - A Chip sits in the centre of the package. It helps a chip in getting integrated to a larger system. QFN stands for Quad Flat No leads and 48 is the number of ports of the chip. Its dimensions are 7nm * 7nm.
+
+Chip - Various components are integrated onto a single chip.
+
+Pads - Through them signals can be sent to and from the chip. 
+
+Core - Area where all the digital logic (AND gate,OR Gate, MUX etc.) is placed.
+
+Die - Size of the entire chip, which gets manufactured on the silicon wafer.
+
+IP - Called as Intellectual Property , Eg: PLL, ADC, DAC, SRAM are foundry IPs.
+
+Foundry - A Big factory which manufactures the chips. A VLSI engineer has to continously communicate with the foundaries with some interface. Interface is nothing but some files which are provided by the foundary.
+
+2. ***Let's Talk to computers***
+
+**Introduction to RISC-V - Instruction Set Architecture(ISA)**
+Basic idea---> If a C program is to be run on a hardware layout i.e. chip , so the information is first compiled in the RISC-V assembly language program, which gets converted to binary language (Os and 1s) and finally the bits get executed into the layput and we receive the required output.
+Another interface to be present between RISC-V Architecture and the layout is the HDL (Hardware Description Language). Hence we create RISC-V specifications using RTL. Example: picorv32 cpu core - implements the specifications and then performs PNR to GDS flow.
+
+RISC-V Architecture ===> Implementation (picorv32 cpu core) ===> Layout (qflow)
+
+**From Software Applications to Hardware**
+The complete flow of how the software applications run on hardware.
+
+3. ***Get familiar to open-source EDA tools***
+
+**Step 1 : Logic Synthesis** - RTL netlist has all the functionalities defined which has to be converted to a synthesized netlist comprising of logic gates. 
+Open source EDA Tool for Logic syntesis - **Yosys Open Synthesis Suite** : it takes the RTL information , timing .libs  and converts it into a logical netlist which is a combination of gates and flip flops. 
+
+**Step 2 : Floorplanning**  - It is the arrangement of blocksin a chip. Open source EDA Tool **Graywolf**
+
+**Step 3 : Placement** - Open source EDA Tool **Graywolf**
+
+**Step 4 : CTS (Clock Tree Synthesis)** - Route the clock in a way speciified by the designer. Open source EDA Tool **Graywolf**
+
+**Step 5 : Routing** - Routes all the components placed in the placement stage. Open source EDA Tool for Routing - **QRouter**
+
+Common step which is performed at each step is the STA( Static Timing Analysis ) - Open source EDA Tool for STA - **Opentimer** : Open Source high performance timing analysis Tool.
+
+Layout Viewer - **Magic - Layout Viewr**
+
+Pre-layout and Post-layout spice simulations - **Ngspice**
+
+Schematic Editor - **eSim** : Complex circuit design , SPICE Simulations and Analysis and PCB Design.
+
+**Qflow** - Is a tool chain for performing complete RTL2GDS.
+
+***Virtual Box is needed to install Linux OS on Windows so that you can install all these necessary Open Source EDA tools***
   * SKILL 1
     + Introduction to QFN-48 Package, chip,pads,core,die and IP's
   * SKILL 2
@@ -14,6 +69,68 @@
   * SKILL 4
     + Installation of basic EDA tools
 2. **DAY 2 Chip planning strategies and introduction to foundry library cells**
+  **1. Ultilization factor and aspect ratio**
+
+The first step in physical design is to define the height and width of the core and die.
+
+**Die** - It encapsulates the core and it is where the fundamental circuit gets fabricated.
+
+**Core** - It lies inside the die wherein the fundamental logic of design is placed.
+
+Inorder to maximize the throughput we have multiple dies on a single wafer.
+
+***When Netlist occupies 100% of the core area, it means that the utilization of chip is 100%***
+
+**Utilization factor - Area occupied by the Netlist / Total area of the core**
+
+Ideally we do not aim at 100% utilization instead 60-70% utilization is what we look at so that there is room for optimization at later stages.
+
+**Aspect Ratio = Height / Width**
+
+***When the Aspect ratio is 1, it means that the chip is square shaped. While values of aspect ratio other than 1 represent that the chip is rectangular in shape.***
+
+**2. Preplaced Cells**
+
+These are cells which have user defined locations and therefore are already present in the chip before automated placement and routing. Automated placement and routing tools places the remaining logical cells in the design onto chip. Few examples of Pre-placed cells are memories, muxes, etc. They are placed in the core according to the design scenario. For example if the pre-placed cells have more number of inputs then they are placed close to the input side and if they have more number of outputs then they are placed close to the output side.
+
+Arrangement of these IPs in a chip is referred to as Floorplanning.
+
+**3. De-Coupling capacitors** 
+
+When the logic 1 or 0 is not exactly 1 or 0 due to the drop in supply voltage , due to its physical location (far away). Hence if the input and output is within the Noise Margin then the situation is still finebut if it is not then it a huge problem so to fix this we use de - coupling capacitors which store alot of charge and are connected close to the logic circuit physically so that they provide the circuit full supply required and hence de - couples the logic circuit from the supply V, Vdd. When the logic is from 1 to 0, the de-coupling capacitor gets discharged through the Vdd. 
+***Therefore de-coupling capacitors are placed close to the input cells.***
+
+The de-coupling capacitors take care of local communication but for global communication **power planning** is used. 
+
+
+**4. Power Planning** 
+
+***The initial problem was that each circuitry demanded supply at the same time by the de-coupling capacitor.***
+
+Hence all the de - coupling capacitors which where charged to V Volts will have to discharge to 0 through single Gnd, causing a bump in the ground tap point. This problem is known as **Ground Bounce**.
+
+When the de -coupling Capacitors which were at 0 Volts are to be charged to V Volts through a single Vdd, causing lowering of Vdd tap point. This problem is known as **Voltage Droop**.
+
+
+***So the solution to the above two problems is to use multiple Vdd and Vss***. 
+
+This is called the **Mesh**, and is how the power planning will be done.
+
+
+**5. Pin Placement**
+
+A netlist gives the connectivity information between gates which is written in the HDL. The pin placement is the used space between die and core. 
+The Frontend engineer defines the netlist connections while the backend engineer defines the pin placement. The clock ports are usually bigger in size in comparison to other data pins because the clock is continously drives all the flip flops in the design and to get minimum resistance as R is inversly proportional to A.
+
+***Logical cell placement Block*** - It is placed in the core before the automated placement an routing tools place the other blocks.
+
+**6. Cell Design Flow**
+
+It comprises of three things.
+
+1. Inputs - They include **PDK (Process Design Kit**) *which comes from the foundry* and consists of DRC and LVS rules, SPICE Models, library and user defined specs.
+2. Circuit Design Steps -*Cell height* is decided by the distance betwee the power and ground rails, supply voltage, metal layers, pin locations, drawn gate length. 
+3. Outputs
   * SKILL 1
     + utilization factor and aspect ration
     + concept of pre-placed cells
@@ -37,6 +154,96 @@
     + propagation delay and transition time
 
 3. **DAY 3 Design and characterize one library cell using Magic Layout tool and ngspice**
+  **1. Spice Deck**
+
+  It comprises of the connectivity information of components i.e. Netlist. 
+
+  **2. Component values**
+
+  The width and length of PMOS and NMOS are defined.
+
+  M1: PMOS -> W/L -> 0.375u / 0.25u
+  M2: NMOS -> W/L -> 0.375u / 0.25u
+
+  ***Generally the gate Voltage is similar to channel length i.e. if we have channel length L= 0.25u ,then the gate voltage = 2.5 V***
+
+  **3. Identify 'nodes'** 
+
+  A node is required to specify the spice netlist. 
+
+  **4. Name nodes**
+
+  Every node is represented as a positive number starting from 0 to n. In an increasing order. Nodes  can either be represented as gnd, out, in etc.
+
+
+
+*** MODEL DESCRIPTION ***
+
+*** NETLIST DESCRIPTION ***
+
+`M1 out in Vdd Vdd pmos W=0.375u L=0.25u`
+
+In the above spice statement a transistor M1 which is a pmos is specified with the order : drain , gate , source, substrate .
+
+`M2 out in 0 0 nmos W=0.375u L=0.25u`
+
+In the above spice statement a transistor M2 which is a nmos is specified with the order : drain , gate , source, substrate .
+
+`cload out 0 10f`
+
+In the above spice statement a load capacitor connected between the out and 0 node having a value of 10fF is specified.
+
+`Vdd vdd 0 2.5`
+
+In the above spice statement a the power supply Vdd is connected between the vdd and 0 nodes and has value 2.5V 
+
+`Vin in 0 2.5`
+
+**Spice Simulation Lab for CMOS Inverter**
+
+*** SIMULATION COMMANDS ***
+
+`.op`
+
+`.dc Vin 0 2.5 0.05`
+
+The above Spice command is to sweep the input voltage 'Vin' from 0 to 2.5V at steps of 0.05 and get the ouput voltage.
+
+
+There are two cases for pmos and nmos in which there is SPICE Waveform variation :
+
+1. When, Wn = Wp = 0.375u and Ln,p = 0.25u - The (W/L)n = (W/L)p = 1.5 : The VTC Curve is shifted towards the left and the **switching threshold Vm = 0.98 V**
+2. When, Wn = 0.375u, Wp= 0.9375 ( observe that Wp = 2.5 * Wn ) : The VTC Curve is exactly at the middle , and the  **switching threshold Vm = 1.2 V**
+
+Hence we observe a difference in transfer characteristics.
+
+
+**Switching Threshold**
+
+It defines the robustness of CMOS. It is represented as Vm and it lies at the point where Vin = Vout.
+
+
+**Layout**
+
+Art of layout using Euler's path + Stick diagram
+
+***Layout using stick diagram only***
+
+In this case the conjestion of many metal layers causes alot of DRC rules to come up. However the output remains the same as that in euler's path. 
+
+The improved stick diagram is the combination of Euler's path + Stick diagram.  Stick diagram acts as an interface between final layout and circuit.
+
+After drawing the stick diagram , a rough layout and the dimensions to the metal lines and diffusion layers is specified in accordance with the DRC rules.
+
+***Remember n diffusion contact and p diffusion contact are different.***
+
+
+**Cell Characterization**
+
+1. Derive actual dimensions for the function
+2. Script to create layout in Magic
+3. Final layout and input output labelling 
+4. Pre-layout and post-layout simulation
   * SKILL 1- Labs for CMOS inverter ngspice simulation
     + Spice deck creation for CMOS inverter
     + Spice simulation lab for CMOS INverter
@@ -63,6 +270,22 @@
     + Higher level metal formation
 
 4. **DAY 4  Pre-layout timing analysis and importance of good clock tree**
+  **1. Delay Tables**
+
+  A Delay Table is used for representing delay of a particular block while varying the output load    and input slew. Every clock with different sizes has a different Delay table and delay tables varies from block to block.
+
+  **2. Setup Timing Analysis**
+
+  It is the finite time required *before the clock edge* wherein the data stability is maintained. 
+
+  **3. Hold Timing Analysis**
+
+  It is the finite time required *after the clock edge* wherein data stability is maintained.
+
+  **4. Clock Jitter**
+
+  It is the temporary variation in clock period, it is modelled by using a single pararmeter          **Uncertainity** .
+
   * SKILL 1- Timing modelling using delay table
     + Introduction to delay table
     + Delay table usage
@@ -77,6 +300,22 @@
     + Hold timing analysis using real clock
 
 5. **DAY 5 Final steps for RTL2GDS**
+  **1. Maze Routing - Lee's Algorithm**
+
+  It is a very popular algorithm in physical design - Routing stage. It starts by creating a routing   grid. So, according to this algorithm we have a Source "S" and a target "T" and we need to find a     path from S to T which is shortest and has the least number of bends. So starting from the cell       wherein we have our S , the adjacent cells ( except the diagonal one's) are numbered in an increasing   order to reach the T cell.
+
+
+  **2. DRC - Design Rule Checks**
+
+  It comprises of various design constraints that have to be adhered to inorder to avoid DRC failure. 
+
+* Wire Width - Width of the Wire
+* Wire pitch - Spacing between the centres of two wires
+* Wire Spacing - Spacing between two wires
+* Via Width
+* Via Spacing
+
+An example of a DRC violation is *Signal Short* and to the easiest and the cheapest way to prevent this from occuring is to use change metal layers.
   * SKILL 1- Routing and design rule check(DRC)
     + Introduction to maze routing
     + Lee's algoritm conclusion
