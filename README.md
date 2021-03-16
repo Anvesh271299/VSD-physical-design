@@ -391,11 +391,13 @@ Verilog source file : picorv32.v
 Verilog module : picorv32
 
 ![image](https://user-images.githubusercontent.com/80052871/110253395-1e0be600-7fb0-11eb-9731-e4410e088001.png)
-
+After unning the synthesis, we click on "okay" to open log reports. 
+Shown below is one such report:
 ![image](https://user-images.githubusercontent.com/80052871/110253397-219f6d00-7fb0-11eb-9268-366e023fe173.png)
-
+The picture given below shows the list of different components from our synthesis report.
+No. of wires, number of cells, flip flops, gates, etc.
 ![image](https://user-images.githubusercontent.com/80052871/110253401-26642100-7fb0-11eb-8427-e96505a6157c.png)
-
+Calculating ration of flops to total logic:
 ![image](https://user-images.githubusercontent.com/80052871/110253412-31b74c80-7fb0-11eb-8088-9359189e7f21.png)
 Number of cells = 6628
 Number of flops = 992
